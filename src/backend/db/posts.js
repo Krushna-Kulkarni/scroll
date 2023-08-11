@@ -267,7 +267,7 @@ export const posts = [
   },
   {
     _id: uuid(),
-    username: "sheldon789",
+    username: "sheldonnotcooper",
     createdAt: formatDate(),
     updatedAt: formatDate(),
     content: "In love with this new ps5 console.🎮",
