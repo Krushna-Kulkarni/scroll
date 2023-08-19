@@ -1,23 +1,19 @@
 import React, { useContext } from "react";
-
 import SideBar from "../components/SideBar";
 import Aside from "../components/Aside";
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
-import BookmarksOutlinedIcon from "@mui/icons-material/BookmarksOutlined";
-import IosShareOutlinedIcon from "@mui/icons-material/IosShareOutlined";
-import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import moment from "moment";
 
 import { UsersContext } from "../contexts/UsersContext";
-import { users } from "../backend/db/users";
-import { posts } from "../backend/db/posts";
+import PostCard from "../components/PostCard";
+import { PostsContext } from "../contexts/PostsContext";
 
 const Profile = () => {
   const { currentUser } = useContext(UsersContext);
-  const userPosts = posts.filter(
+  const { allPosts } = useContext(PostsContext);
+
+  const userPosts = allPosts.filter(
     (post) => post.username === currentUser.username
   );
 
@@ -34,7 +30,7 @@ const Profile = () => {
           <div>
             <div>{currentUser.username}</div>
             <div className="text-sm text-gray-600">
-              {userPosts.length} Posts
+              {userPosts.length} allPosts
             </div>
           </div>
         </div>
@@ -75,83 +71,7 @@ const Profile = () => {
         {/* User userPosts */}
         <div className="mb-12 sm:mb-2">
           {userPosts?.map((post) => {
-            const {
-              _id,
-              username,
-              createdAt,
-              content,
-              mediaURL,
-              mediaAlt,
-              likedBy,
-              comments,
-            } = post;
-            const user = users.find((user) => user.username === username);
-            const likes = likedBy.length;
-            const totalComments = comments.length;
-
-            return (
-              // Post
-              <>
-                <div
-                  key={_id}
-                  className="grid grid-cols-[2rem_1fr] gap-1.5 p-3  text-sm  border-solid border-b-2 border-red-500"
-                >
-                  <div>
-                    <img
-                      src={user?.profileAvatar}
-                      alt="user"
-                      className="w-9 h-9 mt-1 rounded-full"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <div className="flex justify-between">
-                      <div className="flex justify-start gap-2 pt-1">
-                        <div className="flex flex-col">
-                          <span className="font-bold">
-                            {user.firstName} {user.lastName}
-                          </span>
-                          <span className=" text-gray-600">@{username}</span>
-                        </div>
-                        <div className=" text-slate-600">
-                          {moment({ createdAt }).format("ll")}
-                        </div>
-                      </div>
-                      <div className="p-2">
-                        <MoreHorizOutlinedIcon />
-                      </div>
-                    </div>
-                    <div>{content}</div>
-                    <div>
-                      <img
-                        src={mediaURL}
-                        alt={mediaAlt}
-                        className="w-full h-auto rounded"
-                      />
-                    </div>
-                    <div className="flex gap-6  p-2 ">
-                      <div className="flex justify-center ">
-                        <span className="flex cursor-pointer">
-                          <FavoriteBorderOutlinedIcon />
-                        </span>
-                        <span> {likes}</span>
-                      </div>
-                      <div className="flex justify-center ">
-                        <span className="cursor-pointer">
-                          <ChatBubbleOutlineOutlinedIcon />
-                        </span>
-                        <span>{totalComments}</span>
-                      </div>
-                      <span className="cursor-pointer">
-                        <BookmarksOutlinedIcon />
-                      </span>
-                      <span className="cursor-pointer">
-                        <IosShareOutlinedIcon />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </>
-            );
+            return <PostCard post={post} />;
           })}
         </div>
       </div>
