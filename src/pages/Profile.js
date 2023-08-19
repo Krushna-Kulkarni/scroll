@@ -16,9 +16,10 @@ import { users } from "../backend/db/users";
 import { posts } from "../backend/db/posts";
 
 const Profile = () => {
-  const { myUsers } = useContext(UsersContext);
-  const myUser = myUsers[5];
-  const userPosts = posts.filter((post) => post.username === myUser.username);
+  const { currentUser } = useContext(UsersContext);
+  const userPosts = posts.filter(
+    (post) => post.username === currentUser.username
+  );
 
   return (
     <div className="grid sm:grid-cols-[4rem_1fr] lg:grid-cols-[12rem_1fr] xl:grid-cols-[11rem_1fr_20rem] w-[100%] lg:w-[80%] sm:m-auto transition-all duration-500 h-screen ">
@@ -31,7 +32,7 @@ const Profile = () => {
             <ArrowBackIcon />
           </div>
           <div>
-            <div>{myUser.username}</div>
+            <div>{currentUser.username}</div>
             <div className="text-sm text-gray-600">
               {userPosts.length} Posts
             </div>
@@ -41,7 +42,7 @@ const Profile = () => {
         <div className="relative flex flex-col items-center w-full border-solid border-b-2 border-black">
           <img
             className="w-full h-[11.5rem] object-cover"
-            src={myUser?.backgroundImage}
+            src={currentUser?.backgroundImage}
             alt="coverPhoto"
           />
           <div className="flex flex-col  w-full px-4 py-2 text-sm gap-2">
@@ -49,7 +50,7 @@ const Profile = () => {
               <span>
                 <img
                   className="absolute w-[7rem] h-[7rem] top-[6.5rem] rounded-full object-cover "
-                  src={myUser.profileAvatar}
+                  src={currentUser.profileAvatar}
                   alt="profilePhoto"
                 />
               </span>
@@ -59,15 +60,15 @@ const Profile = () => {
               </div>
             </div>
             <div className="flex flex-col justify-start">
-              <p className="text-lg font-bold">{`${myUser?.firstName} ${myUser?.lastName}`}</p>
-              <span>{myUser?.username}</span>
+              <p className="text-lg font-bold">{`${currentUser?.firstName} ${currentUser?.lastName}`}</p>
+              <span>{currentUser?.username}</span>
             </div>
-            <span>{myUser?.bio}</span>
-            <div>{myUser?.website}</div>
-            <div>{moment(myUser?.createdAt).format("ll")}</div>
+            <span>{currentUser?.bio}</span>
+            <div>{currentUser?.website}</div>
+            <div>{moment(currentUser?.createdAt).format("ll")}</div>
             <div className="flex justify-start gap-2">
-              <span>{myUser?.followers.length} followers</span>
-              <span>{myUser?.following.length} following</span>
+              <span>{currentUser?.followers.length} followers</span>
+              <span>{currentUser?.following.length} following</span>
             </div>
           </div>
         </div>

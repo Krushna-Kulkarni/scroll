@@ -10,38 +10,13 @@ export const posts = [
   {
     _id: uuid(),
     username: "robertj123",
-    createdAt: formatDate(),
+    createdAt: "2023-08-16T12:45:44+05:30",
     updatedAt: formatDate(),
     content: "how someone can not fall in love with this guacamole salad💗",
     mediaURL:
       "https://res.cloudinary.com/random-data-cloud/image/upload/v1691070700/scroll/posts/salad_w3jvl2.jpg",
     mediaAlt: "salad",
-    likedBy: [
-      {
-        _id: "LCrc9f0Zl0",
-        firstName: "John",
-        lastName: "Alter",
-        username: "johnalter",
-        profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065153/scroll/users/johnalter_qrfboh.jpg",
-      },
-      {
-        _id: "1T6Be1QpLm",
-        firstName: "Rajesh",
-        lastName: "Kuthrapalli",
-        username: "rajeshk",
-        profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691067474/scroll/users/rajeshkuthrapalli_q3yxdj.webp",
-      },
-      {
-        _id: "o5gzWjEeX_",
-        firstName: "Robert",
-        lastName: "Jane",
-        username: "robertj123",
-        profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065151/scroll/users/robertjane_nlepsa.jpg",
-      },
-    ],
+    likedBy: ["LCrc9f0Zl0", "1T6Be1QpLm", "o5gzWjEeX_"],
     comments: [
       {
         _id: "LCrc9f0Zl0",
@@ -81,46 +56,13 @@ export const posts = [
   {
     _id: uuid(),
     username: "milliebrown",
-    createdAt: formatDate(),
+    createdAt: "2023-08-16T12:52:44+05:30",
     updatedAt: formatDate(),
     content: "my new setup 💻",
     mediaURL:
       "https://res.cloudinary.com/random-data-cloud/image/upload/v1691071409/scroll/posts/setup_t6prxi.jpg",
     mediaAlt: "workspace",
-    likedBy: [
-      {
-        _id: "79Gksh9otl",
-        firstName: "Sarah",
-        lastName: "samson",
-        username: "sarahsamsn",
-        profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065151/scroll/users/sarahsamson_f4mwza.jpg",
-      },
-      {
-        _id: "LCrc9f0Zl0",
-        firstName: "John",
-        lastName: "Alter",
-        username: "johnalter",
-        profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065153/scroll/users/johnalter_qrfboh.jpg",
-      },
-      {
-        _id: "1T6Be1QpLm",
-        firstName: "Rajesh",
-        lastName: "Kuthrapalli",
-        username: "rajeshk",
-        profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691067474/scroll/users/rajeshkuthrapalli_q3yxdj.webp",
-      },
-      {
-        _id: "o5gzWjEeX_",
-        firstName: "Robert",
-        lastName: "Jane",
-        username: "robertj123",
-        profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065151/scroll/users/robertjane_nlepsa.jpg",
-      },
-    ],
+    likedBy: ["79Gksh9otl", "LCrc9f0Zl0", "1T6Be1QpLm", "o5gzWjEeX_"],
     comments: [
       {
         commentData: "faboulous!🤩",
@@ -162,22 +104,13 @@ export const posts = [
   {
     _id: uuid(),
     username: "sarahsamsn",
-    createdAt: formatDate(),
+    createdAt: "2023-08-16T12:52:44+05:30",
     updatedAt: formatDate(),
     content: "updated the cover photo",
     mediaURL:
       "https://res.cloudinary.com/random-data-cloud/image/upload/v1691066687/scroll/background/travel_om25zv.jpg",
     mediaAlt: "travelInMountains",
-    likedBy: [
-      {
-        _id: "LCrc9f0Zl0",
-        firstName: "John",
-        lastName: "Alter",
-        username: "johnalter",
-        profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065153/scroll/users/johnalter_qrfboh.jpg",
-      },
-    ],
+    likedBy: ["LCrc9f0Zl0"],
     comments: [
       {
         commentData: "nice!👌",
@@ -207,38 +140,13 @@ export const posts = [
   {
     _id: uuid(),
     username: "johnalter",
-    createdAt: formatDate(),
+    createdAt: "2023-08-14T12:45:44+05:30",
     updatedAt: formatDate(),
     content: "Living life one concert at a time 🎸",
     mediaURL:
       "https://res.cloudinary.com/random-data-cloud/image/upload/v1691074464/scroll/posts/concert_apih8c.jpg",
     mediaAlt: "liveconcert",
-    likedBy: [
-      {
-        _id: "t7cZfWIp-q",
-        firstName: "Millie",
-        lastName: "Brown",
-        username: "milliebrown",
-        profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065151/scroll/users/milliebrown_icaxdb.jpg",
-      },
-      {
-        _id: "1T6Be1QpLm",
-        firstName: "Rajesh",
-        lastName: "Kuthrapalli",
-        username: "rajeshk",
-        profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691067474/scroll/users/rajeshkuthrapalli_q3yxdj.webp",
-      },
-      {
-        _id: "o5gzWjEeX_",
-        firstName: "Robert",
-        lastName: "Jane",
-        username: "robertj123",
-        profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065151/scroll/users/robertjane_nlepsa.jpg",
-      },
-    ],
+    likedBy: ["t7cZfWIp-q", "1T6Be1QpLm", "o5gzWjEeX_"],
     comments: [
       {
         commentData: "nice!👌",
@@ -268,30 +176,13 @@ export const posts = [
   {
     _id: uuid(),
     username: "sheldonnotcooper",
-    createdAt: formatDate(),
+    createdAt: "2023-08-13T12:45:44+05:30",
     updatedAt: formatDate(),
     content: "In love with this new ps5 console.🎮",
     mediaURL:
       "https://res.cloudinary.com/random-data-cloud/image/upload/v1691073099/scroll/posts/console_wfxexu.jpg",
     mediaAlt: "gamingConsole",
-    likedBy: [
-      {
-        _id: "LCrc9f0Zl0",
-        firstName: "John",
-        lastName: "Alter",
-        username: "johnalter",
-        profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065153/scroll/users/johnalter_qrfboh.jpg",
-      },
-      {
-        _id: "t7cZfWIp-q",
-        firstName: "Millie",
-        lastName: "Brown",
-        username: "milliebrown",
-        profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065151/scroll/users/milliebrown_icaxdb.jpg",
-      },
-    ],
+    likedBy: ["LCrc9f0Zl0", "t7cZfWIp-q"],
     comments: [
       {
         commentData: "looks cool!👌",
@@ -310,30 +201,13 @@ export const posts = [
   {
     _id: uuid(),
     username: "avagreen",
-    createdAt: formatDate(),
+    createdAt: "2023-08-12T12:45:44+05:30",
     updatedAt: formatDate(),
     content: "My everyday walking partner 🐕‍🦺",
     mediaURL:
       "https://res.cloudinary.com/random-data-cloud/image/upload/v1691075725/scroll/posts/roamingwithdog_r8k9dv.jpg",
     mediaAlt: "walkingdog",
-    likedBy: [
-      {
-        _id: "LCrc9f0Zl0",
-        firstName: "John",
-        lastName: "Alter",
-        username: "johnalter",
-        profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065153/scroll/users/johnalter_qrfboh.jpg",
-      },
-      {
-        _id: "t7cZfWIp-q",
-        firstName: "Millie",
-        lastName: "Brown",
-        username: "milliebrown",
-        profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065151/scroll/users/milliebrown_icaxdb.jpg",
-      },
-    ],
+    likedBy: ["LCrc9f0Zl0", "t7cZfWIp-q"],
     comments: [],
   },
 ];

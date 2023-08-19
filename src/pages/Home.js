@@ -1,22 +1,45 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
-import BookmarksOutlinedIcon from "@mui/icons-material/BookmarksOutlined";
-import IosShareOutlinedIcon from "@mui/icons-material/IosShareOutlined";
-import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
-
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
-import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
-import AddReactionIcon from "@mui/icons-material/AddReaction";
-
-import { posts } from "./../backend/db/posts";
 import moment from "moment";
-import { users } from "./../backend/db/users";
 import SideBar from "../components/SideBar";
 import Aside from "../components/Aside";
+import { UsersContext } from "../contexts/UsersContext";
+import FilterModal from "../components/FilterModal";
+import { PostsContext } from "../contexts/PostsContext";
+
+import {
+  MdFavoriteBorder,
+  MdFavorite,
+  MdChatBubbleOutline,
+  MdBookmark,
+  MdBookmarkBorder,
+  MdIosShare,
+  MdMoreHoriz,
+  MdFilterAlt,
+  MdAddPhotoAlternate,
+  MdAddReaction,
+} from "react-icons/md";
 
 const Home = () => {
+  const [currentUserFeedPosts, setCurrentUserFeedPosts] = useState([]);
+  const { myUsers, currentUser, usersDispatch } = useContext(UsersContext);
+  const { allPosts, postsDispatch, isFilterOn, setIsFilterOn } =
+    useContext(PostsContext);
+
+  // const currentUser = myUsers[0];
+  console.log(currentUser.bookmarks);
+  useEffect(() => {
+    setCurrentUserFeedPosts(
+      allPosts?.filter(
+        (post) =>
+          post?.username === currentUser?.username ||
+          currentUser?.following.find(
+            (user) => user?.username === post?.username
+          )
+      )
+    );
+  }, [currentUser, allPosts]);
+
   return (
     <div className="grid sm:grid-cols-[4rem_1fr] lg:grid-cols-[12rem_1fr] xl:grid-cols-[11rem_1fr_20rem] w-[100%] lg:w-[80%] mb-16 sm:m-auto transition-all duration-500 h-screen ">
       {/* leftSidebar */}
@@ -28,13 +51,12 @@ const Home = () => {
           Home
         </div>
         {/* Make Post  */}
-        <div className="grid grid-cols-[2rem_1fr] gap-2 items-start text-sm border-b border-gray-600 px-4 py-3 cursor-text">
+        <div className="grid grid-cols-[2rem_1fr] gap-2 items-start text-sm border-b border-gray-600 px-2 py-4 cursor-text">
           <div className="">
             <img
-              src=""
-              // src={user?.profileAvatar}
+              src={currentUser?.profileAvatar}
               alt="user"
-              className="w-9 h-9 mt-1 rounded-full"
+              className="w-9 h-8  rounded-full"
             />
           </div>
           <form className="flex flex-col gap-2">
@@ -53,13 +75,13 @@ const Home = () => {
                   accept="image/*, video/*"
                   className="hidden"
                 />
-                <AddPhotoAlternateIcon
+                <MdAddPhotoAlternate
                   className="text-xl scale-100 hover:scale-125"
                   title="Add Photo/GIF/Video"
                 />
               </label>
               <label className="cursor-pointer">
-                <AddReactionIcon
+                <MdAddReaction
                   className="text-xl scale-90 hover:scale-125"
                   title="Add Emoji"
                 />
@@ -78,13 +100,17 @@ const Home = () => {
         {/* Filter */}
         <div className="w-full border-b-2 p-2 text-md border-black flex justify-between items-center">
           <span>Latest Posts</span>
-          <span className="pr-4">
-            <FilterAltIcon />
+          <span className="pr-4 relative ">
+            <MdFilterAlt
+              onClick={() => setIsFilterOn(!isFilterOn)}
+              className="cursor-pointer scale-100 hover:scale-125"
+            />
+            {isFilterOn && <FilterModal />}
           </span>
         </div>
         {/* posts */}
         <div className="mb-12 sm:mb-2">
-          {posts?.map((post) => {
+          {currentUserFeedPosts.map((post) => {
             const {
               _id,
               username,
@@ -95,7 +121,7 @@ const Home = () => {
               likedBy,
               comments,
             } = post;
-            const user = users.find((user) => user.username === username);
+            const user = myUsers?.find((user) => user.username === username);
             const likes = likedBy.length;
             const totalComments = comments.length;
 
@@ -110,7 +136,7 @@ const Home = () => {
                     <img
                       src={user?.profileAvatar}
                       alt="user"
-                      className="w-9 h-9 mt-1 rounded-full"
+                      className="w-9 h-8 mt-1 rounded-full"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
@@ -123,15 +149,15 @@ const Home = () => {
                           <span className=" text-gray-600">@{username}</span>
                         </div>
                         <div className=" text-slate-600">
-                          {moment({ createdAt }).format("ll")}
+                          {moment(createdAt).format("lll")}
                         </div>
                       </div>
                       <div className="p-2">
-                        <MoreHorizOutlinedIcon />
+                        <MdMoreHoriz />
                       </div>
                     </div>
                     <div>{content}</div>
-                    <div>
+                    <div className=" m-auto">
                       <img
                         src={mediaURL}
                         alt={mediaAlt}
@@ -140,22 +166,63 @@ const Home = () => {
                     </div>
                     <div className="flex gap-6  p-2 ">
                       <div className="flex justify-center ">
-                        <span className="flex cursor-pointer">
-                          <FavoriteBorderOutlinedIcon />
-                        </span>
+                        {likedBy?.includes(currentUser?._id) ? (
+                          <span
+                            onClick={() =>
+                              postsDispatch({
+                                type: "UNLIKE_POST",
+                                payload: _id,
+                              })
+                            }
+                            className="flex cursor-pointer text-red-600"
+                          >
+                            <MdFavorite />
+                          </span>
+                        ) : (
+                          <span
+                            onClick={() =>
+                              postsDispatch({ type: "LIKE_POST", payload: _id })
+                            }
+                            className="flex cursor-pointer"
+                          >
+                            <MdFavoriteBorder />
+                          </span>
+                        )}
                         <span> {likes}</span>
                       </div>
                       <div className="flex justify-center ">
                         <span className="cursor-pointer">
-                          <ChatBubbleOutlineOutlinedIcon />
+                          <MdChatBubbleOutline />
                         </span>
                         <span>{totalComments}</span>
                       </div>
+                      {currentUser?.bookmarks?.includes(_id) ? (
+                        <span
+                          onClick={() => {
+                            usersDispatch({
+                              type: "UNBOOKMARK_POST",
+                              payload: _id,
+                            });
+                          }}
+                          className="flex cursor-pointer text-red-600"
+                        >
+                          <MdBookmark />
+                        </span>
+                      ) : (
+                        <span
+                          onClick={() => {
+                            usersDispatch({
+                              type: "BOOKMARK_POST",
+                              payload: _id,
+                            });
+                          }}
+                          className="flex cursor-pointer"
+                        >
+                          <MdBookmarkBorder />
+                        </span>
+                      )}
                       <span className="cursor-pointer">
-                        <BookmarksOutlinedIcon />
-                      </span>
-                      <span className="cursor-pointer">
-                        <IosShareOutlinedIcon />
+                        <MdIosShare />
                       </span>
                     </div>
                   </div>

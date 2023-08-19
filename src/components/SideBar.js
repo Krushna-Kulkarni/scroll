@@ -16,7 +16,7 @@ const SideBar = () => {
       <div className="flex bg-white  sm:sticky sm:flex-col sm:justify-between sm:h-screen sm:top-0 sm:overflow-y-auto overflow-x-hidden fixed bottom-0 left-0 w-full items-center sm:border-0 border-t-2 border-gray-600 sm:z-0 z-40">
         <ul className="flex items-center sm:items-start justify-evenly sm:justify-start p-1 sm:flex-col grow">
           <li>
-            <Link className="flex items-center">
+            <Link to="/" className="flex items-center">
               <img
                 src={scrollPng}
                 alt="logo"
@@ -29,7 +29,7 @@ const SideBar = () => {
           </li>
           <li className="sm:mt-2">
             <NavLink
-              to="#"
+              to="/"
               className="flex items-center gap-1 p-2 text-md hover:bg-teal-400"
             >
               <span>
@@ -40,7 +40,7 @@ const SideBar = () => {
           </li>
           <li>
             <NavLink
-              to="#"
+              to="/explore"
               className="flex items-center gap-1 p-2 text-md hover:bg-teal-400"
             >
               <span>
@@ -51,7 +51,7 @@ const SideBar = () => {
           </li>
           <li>
             <NavLink
-              to="#"
+              to="/bookmarks"
               className="flex items-center gap-1 p-2 text-md hover:bg-teal-400"
             >
               <span>
@@ -62,7 +62,7 @@ const SideBar = () => {
           </li>
           <li>
             <NavLink
-              to="#"
+              to="/profile"
               className="flex items-center gap-1 p-2 text-md hover:bg-teal-400"
             >
               <span>
@@ -72,7 +72,7 @@ const SideBar = () => {
             </NavLink>
           </li>
           <li>
-            <button className="flex gap-2 p-2 max-w-32 text-md border-solid rounded text-white font-medium bg-teal-400">
+            <button className="flex gap-2 mt-2 p-2 max-w-32 text-md border-solid rounded text-white font-medium bg-teal-400">
               <span>
                 <MdAddCircle className="text-2xl" />
               </span>
