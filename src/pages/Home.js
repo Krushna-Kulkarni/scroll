@@ -26,8 +26,6 @@ const Home = () => {
   const { allPosts, postsDispatch, isFilterOn, setIsFilterOn } =
     useContext(PostsContext);
 
-  // const currentUser = myUsers[0];
-  console.log(currentUser.bookmarks);
   useEffect(() => {
     setCurrentUserFeedPosts(
       allPosts?.filter(

@@ -8,10 +8,10 @@ export const UsersProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(allUsers[0]);
 
   const usersReducer = (state, { type, payload }) => {
+    let finalState;
     switch (type) {
-      case "BOOKMARK_POST": {
-        console.log({ type, payload });
-        return [...state].map((user) =>
+      case "BOOKMARK_POST":
+        finalState = [...state].map((user) =>
           user?._id === currentUser?._id
             ? {
                 ...currentUser,
@@ -19,10 +19,9 @@ export const UsersProvider = ({ children }) => {
               }
             : user
         );
-      }
-
+        break;
       case "UNBOOKMARK_POST":
-        return [...state].map((user) =>
+        finalState = [...state].map((user) =>
           user._id === currentUser._id
             ? {
                 ...currentUser,
@@ -32,10 +31,12 @@ export const UsersProvider = ({ children }) => {
               }
             : user
         );
-
+        break;
       default:
         return state;
     }
+    setCurrentUser(finalState?.find((user) => user?._id === currentUser?._id));
+    return finalState;
   };
 
   const [myUsers, usersDispatch] = useReducer(usersReducer, allUsers);

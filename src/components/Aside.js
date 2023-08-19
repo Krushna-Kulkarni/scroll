@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import { users } from "../backend/db/users";
 import { UsersContext } from "../contexts/UsersContext";
 
 const Aside = () => {
-  const { currentUser } = useContext(UsersContext);
+  const { currentUser, myUsers } = useContext(UsersContext);
+  const whoToFollow = myUsers?.filter(
+    (user) =>
+      currentUser.following.every((item) => item.username !== user.username) &&
+      user.username !== currentUser.username
+  );
 
   return (
     <>
@@ -18,41 +22,34 @@ const Aside = () => {
           <SearchOutlinedIcon className="absolute right-1 top-2.5 xl:top-2" />
         </div>
         {/* who to follow */}
-        {users.length ? (
+        {myUsers?.length ? (
           <div className="flex flex-col h-[67%] gap-4 m-4 mt-8 px-4 py-3 bg-teal-400 rounded-md  overflow-hidden overflow-y-scroll no-scrollbar">
             <div className="text-lg font-bold tracking-wide">Who to Follow</div>
 
-            {users
-              ?.filter(
-                (user) =>
-                  currentUser.following.every(
-                    (item) => item.username !== user.username
-                  ) && user.username !== currentUser.username
-              )
-              ?.map((user) => (
-                <div
-                  key={user._id}
-                  className="flex items-center gap-2 cursor-pointer"
-                >
-                  <img
-                    src={user?.profileAvatar}
-                    alt="user"
-                    className="w-9  h-9 mt-1 rounded-full"
-                  />
-                  <div className="flex flex-col grow  -mt-0.5 w-[50%] ">
-                    <span className="text-sm ">
-                      {user.firstName + " " + user.lastName}
-                    </span>
-                    <span className="text-sm  overflow-hidden text-ellipsis text-[grey] -mt-1">
-                      @{user.username}
-                    </span>
-                  </div>
-
-                  <button className="p-2 text-xs text-center rounded-md w-18 bg-teal-200">
-                    Follow
-                  </button>
+            {whoToFollow?.map((user) => (
+              <div
+                key={user._id}
+                className="flex items-center gap-2 cursor-pointer"
+              >
+                <img
+                  src={user?.profileAvatar}
+                  alt="user"
+                  className="w-9  h-9 mt-1 rounded-full"
+                />
+                <div className="flex flex-col grow  -mt-0.5 w-[50%] ">
+                  <span className="text-sm ">
+                    {user.firstName + " " + user.lastName}
+                  </span>
+                  <span className="text-sm  overflow-hidden text-ellipsis text-[grey] -mt-1">
+                    @{user.username}
+                  </span>
                 </div>
-              ))}
+
+                <button className="p-2 text-xs text-center rounded-md w-18 bg-teal-200">
+                  Follow
+                </button>
+              </div>
+            ))}
           </div>
         ) : (
           <></>
