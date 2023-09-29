@@ -1,1 +1,1 @@
-# Scroll - Social Media Application - Project In Progess
+# Scroll - Social Media Application (Project In Progess)
