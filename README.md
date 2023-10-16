@@ -3,6 +3,9 @@
 ## **Demo**
 See Live Demo Here - https://socialscroll.netlify.app
 
+![image](https://github.com/Krushna-Kulkarni/scroll/assets/62604823/3df25a3a-eb15-4b84-805a-5aa011690930)
+
+
 ## **How to install and run locally?**
 
 ```
