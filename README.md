@@ -1,4 +1,9 @@
-# Scroll - Social Media Application (Project In Progess)
+<div align="center">
+  <img src="https://github.com/Krushna-Kulkarni/scroll/blob/master/src/scroll.svg" height="100" width="100" alt="logo"/>
+  
+# Scroll
+  Social Media Application (Project In Progess)
+</div>
 
 ## **Demo**
 See Live Demo Here - https://socialscroll.netlify.app
