@@ -9,6 +9,7 @@ import { PostsContext } from "../contexts/PostsContext";
 import { MdFilterAlt } from "react-icons/md";
 import PostCard from "../components/PostCard";
 import CreatePost from "../components/CreatePost";
+import moment from "moment";
 
 const Home = () => {
   const [currentUserFeedPosts, setCurrentUserFeedPosts] = useState([]);
@@ -17,13 +18,15 @@ const Home = () => {
 
   useEffect(() => {
     setCurrentUserFeedPosts(
-      allPosts?.filter(
-        (post) =>
-          post?.username === currentUser?.username ||
-          currentUser?.following.find(
-            (user) => user?.username === post?.username
-          )
-      )
+      allPosts
+        ?.filter(
+          (post) =>
+            post?.username === currentUser?.username ||
+            currentUser?.following.find(
+              (user) => user?.username === post?.username
+            )
+        )
+        .sort((a, b) => moment(b.createdAt) - moment(a.createdAt))
     );
   }, [currentUser, allPosts]);
 
