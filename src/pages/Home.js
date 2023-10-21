@@ -6,12 +6,9 @@ import { UsersContext } from "../contexts/UsersContext";
 import FilterModal from "../components/FilterModal";
 import { PostsContext } from "../contexts/PostsContext";
 
-import {
-  MdFilterAlt,
-  MdAddPhotoAlternate,
-  MdAddReaction,
-} from "react-icons/md";
+import { MdFilterAlt } from "react-icons/md";
 import PostCard from "../components/PostCard";
+import CreatePost from "../components/CreatePost";
 
 const Home = () => {
   const [currentUserFeedPosts, setCurrentUserFeedPosts] = useState([]);
@@ -41,52 +38,7 @@ const Home = () => {
           Home
         </div>
         {/* Make Post  */}
-        <div className="grid grid-cols-[2rem_1fr] gap-2 items-start text-sm border-b rounded border-gray-400 px-2 py-4 cursor-text">
-          <div className="">
-            <img
-              src={currentUser?.profileAvatar}
-              alt="user"
-              className="w-9 h-8  rounded-full"
-            />
-          </div>
-          <form className="flex flex-col gap-2">
-            <div className="w-full outline-none mt-1.5 h-auto">
-              <textarea
-                rows={2}
-                className="w-full outline-none resize-none h-auto"
-                placeholder="What is happening?!"
-              ></textarea>
-            </div>
-
-            <div className="ml-auto flex items-center gap-4 mt-1.5">
-              <label className="cursor-pointer">
-                <input
-                  type="file"
-                  accept="image/*, video/*"
-                  className="hidden"
-                />
-                <MdAddPhotoAlternate
-                  className="text-xl scale-100 hover:scale-125"
-                  title="Add Photo/GIF/Video"
-                />
-              </label>
-              <label className="cursor-pointer">
-                <MdAddReaction
-                  className="text-xl scale-90 hover:scale-125"
-                  title="Add Emoji"
-                />
-              </label>
-              <button
-                type="submit"
-                className="py-1 px-4 rounded-md border border-gray-600 disabled:opacity-80 disabled:bg-gray-500 disabled:cursor-not-allowed"
-                // disabled={!content.trim() && !media}
-                disabled={true}
-              >
-                Post
-              </button>
-            </div>
-          </form>
-        </div>
+        <CreatePost />
         {/* Filter */}
         <div className="p-2 m-2 border  border-gray-400 text-md   flex justify-between items-center rounded">
           <span>Latest Posts</span>

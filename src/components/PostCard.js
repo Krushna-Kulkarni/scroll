@@ -61,7 +61,7 @@ const PostCard = ({ post }) => {
           </div>
         </div>
         <div>{content}</div>
-        <div className=" flex justify-start align-center m-auto">
+        <div className="w-full flex justify-start align-center">
           <img
             src={mediaURL}
             alt={mediaAlt}

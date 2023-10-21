@@ -21,12 +21,12 @@ export const PostsProvider = ({ children }) => {
         }
         if (payload === "LATEST") {
           return [...state].sort(
-            (a, b) => moment(a.createdAt) - moment(b.createdAt)
+            (a, b) => moment(b.createdAt) - moment(a.createdAt)
           );
         }
         if (payload === "OLDEST") {
           return [...state].sort(
-            (a, b) => moment(b.createdAt) - moment(a.createdAt)
+            (a, b) => moment(a.createdAt) - moment(b.createdAt)
           );
         }
         break;
@@ -47,6 +47,8 @@ export const PostsProvider = ({ children }) => {
               }
             : post
         );
+      case "CREATE_POST":
+        return [...state, payload];
 
       default:
         return state;
