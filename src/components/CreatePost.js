@@ -11,7 +11,7 @@ const CreatePost = () => {
   const { postsDispatch } = useContext(PostsContext);
   const [postText, setPostText] = useState("");
   const [postImage, setPostImage] = useState("");
-  const [postImagePreview, setPostImagePreview] = useState("");
+  const [postImagePreview, setPostImagePreview] = useState();
   const post = {
     _id: "",
     username: currentUser.username,
@@ -24,8 +24,28 @@ const CreatePost = () => {
     comments: [],
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setPostImage(file);
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        setPostImagePreview(e.target.result);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const clearImage = () => {
+    setPostImagePreview(null);
+  };
+
   const submitHandler = (event) => {
     event.preventDefault();
+
     const postData = new FormData();
 
     postData.append("file", postImage);
@@ -62,6 +82,8 @@ const CreatePost = () => {
           type: "CREATE_POST",
           payload: newPost,
         });
+        setPostText("");
+        setPostImagePreview(null);
       })
       .catch((err) => {
         console.log(err);
@@ -89,14 +111,29 @@ const CreatePost = () => {
             placeholder="What is happening?!"
           ></textarea>
         </div>
-
+        {postImagePreview && (
+          <div className="w-full flex justify-start align-center relative">
+            <div className="relative">
+              <img
+                src={postImagePreview}
+                className="border border-gray-500 rounded-md"
+              />
+              <button
+                className="absolute top-[3%] right-5 bg-black text-white border border-gray-500 w-7 p-1 rounded-3xl"
+                onClick={clearImage}
+              >
+                X
+              </button>
+            </div>
+          </div>
+        )}
         <div className="ml-auto flex items-center gap-4 mt-1.5">
           <label className="cursor-pointer">
             <input
               type="file"
               accept="image/*, video/*"
               onChange={(e) => {
-                setPostImage(e.target.files[0]);
+                handleImageChange(e);
               }}
               className="hidden"
             />
