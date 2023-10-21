@@ -10,7 +10,7 @@ const FilterModal = () => {
   const { postsDispatch, setIsFilterOn } = useContext(PostsContext);
 
   return (
-    <div className="w-28 bg-teal-400 p-1 text-xs sm:text-sm md:text-md absolute top-6 right-7 border-solid border-2 border-black">
+    <div className="w-28 bg-teal-400 p-1 text-xs sm:text-sm md:text-md absolute top-6 right-7 border-solid border border-gray-400 rounded-md">
       <ul>
         <li
           onClick={() => {

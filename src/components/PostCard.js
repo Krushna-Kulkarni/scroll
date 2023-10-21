@@ -34,20 +34,20 @@ const PostCard = ({ post }) => {
   return (
     <div
       key={_id}
-      className="grid grid-cols-[2rem_1fr] gap-1.5 p-3  text-sm  border-solid border-b-2 border-red-500"
+      className="grid grid-cols-[2.2rem_1fr] gap-1.5 p-3  text-sm  border-solid border border-gray-400 rounded m-2"
     >
       <div>
         <img
           src={user?.profileAvatar}
           alt="user"
-          className="w-9 h-8 mt-1 rounded-full"
+          className="w-9 h-9 mt-1 rounded-full"
         />
       </div>
       <div className="flex flex-col gap-2">
         <div className="flex justify-between">
           <div className="flex justify-start gap-2 pt-1">
             <div className="flex flex-col">
-              <span className="font-bold">
+              <span className="font-[550]">
                 {user.firstName} {user.lastName}
               </span>
               <span className=" text-gray-600">@{username}</span>
@@ -61,15 +61,15 @@ const PostCard = ({ post }) => {
           </div>
         </div>
         <div>{content}</div>
-        <div className=" m-auto">
+        <div className=" flex justify-start align-center m-auto">
           <img
             src={mediaURL}
             alt={mediaAlt}
-            className="w-full h-auto rounded"
+            className="w-5/6 h-8/6 border border-gray-500 rounded-md"
           />
         </div>
         <div className="flex gap-6  p-2 ">
-          <div className="flex justify-center ">
+          <div className="flex justify-between gap-1 align-center">
             {likedBy?.includes(currentUser?._id) ? (
               <span
                 onClick={() =>
@@ -80,7 +80,7 @@ const PostCard = ({ post }) => {
                 }
                 className="flex cursor-pointer text-red-600"
               >
-                <MdFavorite />
+                <MdFavorite size="18px" />
               </span>
             ) : (
               <span
@@ -89,16 +89,16 @@ const PostCard = ({ post }) => {
                 }
                 className="flex cursor-pointer"
               >
-                <MdFavoriteBorder />
+                <MdFavoriteBorder size="18px" />
               </span>
             )}
-            <span> {likes}</span>
+            <span style={{ fontSize: "14px" }}> {likes}</span>
           </div>
-          <div className="flex justify-center ">
+          <div className="flex justify-between gap-1 align-center">
             <span className="cursor-pointer">
-              <MdChatBubbleOutline />
+              <MdChatBubbleOutline size="18px" />
             </span>
-            <span>{totalComments}</span>
+            <span style={{ fontSize: "14px" }}>{totalComments}</span>
           </div>
           {currentUser?.bookmarks?.includes(_id) ? (
             <span
@@ -110,7 +110,7 @@ const PostCard = ({ post }) => {
               }}
               className="flex cursor-pointer text-red-600"
             >
-              <MdBookmark />
+              <MdBookmark size="18px" />
             </span>
           ) : (
             <span
@@ -122,11 +122,11 @@ const PostCard = ({ post }) => {
               }}
               className="flex cursor-pointer"
             >
-              <MdBookmarkBorder />
+              <MdBookmarkBorder size="18px" />
             </span>
           )}
           <span className="cursor-pointer">
-            <MdIosShare />
+            <MdIosShare size="18px" />
           </span>
         </div>
       </div>

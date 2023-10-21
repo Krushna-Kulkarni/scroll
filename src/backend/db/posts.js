@@ -12,9 +12,10 @@ export const posts = [
     username: "robertj123",
     createdAt: "2023-08-16T12:45:44+05:30",
     updatedAt: formatDate(),
-    content: "how someone can not fall in love with this guacamole salad💗",
+    content:
+      "my all time favourite guacomole salad with mango and blackbeans💗",
     mediaURL:
-      "https://res.cloudinary.com/random-data-cloud/image/upload/v1691070700/scroll/posts/salad_w3jvl2.jpg",
+      "https://res.cloudinary.com/random-data-cloud/image/upload/v1697711639/scroll/posts/dgmftdrpfisib46mz92k.jpg",
     mediaAlt: "salad",
     likedBy: ["LCrc9f0Zl0", "1T6Be1QpLm", "o5gzWjEeX_"],
     comments: [
