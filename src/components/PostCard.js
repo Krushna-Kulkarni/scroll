@@ -13,7 +13,7 @@ import {
 import { PostsContext } from "../contexts/PostsContext";
 import { UsersContext } from "../contexts/UsersContext";
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, staticLoading }) => {
   const { myUsers, currentUser, usersDispatch } = useContext(UsersContext);
   const { postsDispatch } = useContext(PostsContext);
 
@@ -30,13 +30,13 @@ const PostCard = ({ post }) => {
   const user = myUsers?.find((user) => user.username === username);
   const likes = likedBy.length;
   const totalComments = comments.length;
-  const staticLoading = false;
+
   return (
     <>
       {!staticLoading ? (
         <div
           key={_id}
-          className="grid grid-cols-[2.2rem_1fr] gap-1.5 p-3  text-sm  border-solid border border-gray-400 rounded m-2"
+          className="grid grid-cols-[2.2rem_1fr] gap-2  py-2 px-3  text-sm  border-solid border-b border-gray-400 rounded m-2"
         >
           <div>
             <img
@@ -45,26 +45,27 @@ const PostCard = ({ post }) => {
               className="w-9 h-9 mt-1 rounded-full"
             />
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-0">
             <div className="flex justify-between">
               <div className="flex justify-start gap-2 pt-1">
-                <div className="flex flex-col">
+                <div className="flex">
                   <span className="font-[550]">
                     {user.firstName} {user.lastName}
                   </span>
-                  <span className=" text-gray-600">@{username}</span>
+                  <span className=" text-gray-600">&nbsp;@{username}</span>
                 </div>
+                •
                 <div className=" text-slate-600">
-                  {moment(createdAt).format("lll")}
+                  {moment(createdAt).fromNow()}
                 </div>
               </div>
-              <div className="p-2">
-                <MdMoreHoriz />
+              <div>
+                <MdMoreHoriz size="20px" />
               </div>
             </div>
-            <div>{content}</div>
+            <div class="pb-2">{content}</div>
             {mediaURL && (
-              <div className="w-full flex justify-start align-center">
+              <div className="w-full pb-2 flex justify-start align-center ">
                 <img
                   src={mediaURL}
                   alt={mediaAlt}
@@ -72,7 +73,7 @@ const PostCard = ({ post }) => {
                 />
               </div>
             )}
-            <div className="flex gap-6  p-2 ">
+            <div className="flex justify-between align-start w-3/4 pt-2">
               <div className="flex justify-between gap-1 align-center">
                 {likedBy?.includes(currentUser?._id) ? (
                   <span
@@ -84,7 +85,7 @@ const PostCard = ({ post }) => {
                     }
                     className="flex cursor-pointer text-red-600"
                   >
-                    <MdFavorite size="18px" />
+                    <MdFavorite size="18px" stroke-width="0" />
                   </span>
                 ) : (
                   <span
@@ -93,14 +94,14 @@ const PostCard = ({ post }) => {
                     }
                     className="flex cursor-pointer"
                   >
-                    <MdFavoriteBorder size="18px" />
+                    <MdFavoriteBorder size="18px" stroke-width="0" />
                   </span>
                 )}
                 <span style={{ fontSize: "14px" }}> {likes}</span>
               </div>
               <div className="flex justify-between gap-1 align-center">
                 <span className="cursor-pointer">
-                  <MdChatBubbleOutline size="18px" />
+                  <MdChatBubbleOutline size="18px" stroke-width="0" />
                 </span>
                 <span style={{ fontSize: "14px" }}>{totalComments}</span>
               </div>
@@ -114,7 +115,7 @@ const PostCard = ({ post }) => {
                   }}
                   className="flex cursor-pointer text-red-600"
                 >
-                  <MdBookmark size="18px" />
+                  <MdBookmark size="18px" stroke-width="0" />
                 </span>
               ) : (
                 <span
@@ -126,11 +127,11 @@ const PostCard = ({ post }) => {
                   }}
                   className="flex cursor-pointer"
                 >
-                  <MdBookmarkBorder size="18px" />
+                  <MdBookmarkBorder size="18px" stroke-width="0" />
                 </span>
               )}
               <span className="cursor-pointer">
-                <MdIosShare size="18px" />
+                <MdIosShare size="18px" stroke-width="0" />
               </span>
             </div>
           </div>

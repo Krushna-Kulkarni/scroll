@@ -8,7 +8,7 @@ const Explore = () => {
   const { allPosts } = useContext(PostsContext);
 
   return (
-    <div className="grid sm:grid-cols-[4rem_1fr] lg:grid-cols-[12rem_1fr] xl:grid-cols-[11rem_1fr_20rem] w-[100%] lg:w-[80%] mb-16 sm:m-auto transition-all duration-500 h-screen ">
+    <div className="grid sm:grid-cols-[4rem_0.9fr] lg:grid-cols-[12rem_0.9fr] xl:grid-cols-[13rem_0.9fr_20rem] w-[100%] lg:w-[80%] mb-16 sm:m-auto transition-all duration-500 h-screen justify-center ">
       {/* leftSidebar */}
       <SideBar />
       {/* Feed */}

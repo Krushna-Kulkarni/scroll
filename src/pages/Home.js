@@ -15,7 +15,13 @@ const Home = () => {
   const [currentUserFeedPosts, setCurrentUserFeedPosts] = useState([]);
   const { currentUser } = useContext(UsersContext);
   const { allPosts, isFilterOn, setIsFilterOn } = useContext(PostsContext);
+  const [staticLoading, setStaticLoading] = useState(true);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setStaticLoading(false);
+    }, 500);
+  }, []);
   useEffect(() => {
     setCurrentUserFeedPosts(
       allPosts
@@ -31,7 +37,7 @@ const Home = () => {
   }, [currentUser, allPosts]);
 
   return (
-    <div className="grid sm:grid-cols-[4rem_0.9fr] lg:grid-cols-[12rem_0.9fr] xl:grid-cols-[11rem_0.9fr_20rem] w-[100%] lg:w-[80%] mb-16 sm:m-auto transition-all duration-500 h-screen ">
+    <div className="grid sm:grid-cols-[4rem_0.9fr] lg:grid-cols-[12rem_0.9fr] xl:grid-cols-[13rem_0.9fr_20rem] w-[100%] lg:w-[80%] mb-16 sm:m-auto transition-all duration-500 h-screen justify-center ">
       {/* leftSidebar */}
       <SideBar />
       {/* Feed */}
@@ -58,7 +64,7 @@ const Home = () => {
           {currentUserFeedPosts.map((post) => {
             return (
               // Post
-              <PostCard post={post} />
+              <PostCard post={post} staticLoading={staticLoading} />
             );
           })}
         </div>
