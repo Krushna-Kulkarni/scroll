@@ -15,7 +15,7 @@ export const posts = [
     content:
       "my all time favourite guacomole salad with mango and blackbeans💗",
     mediaURL:
-      "https://res.cloudinary.com/random-data-cloud/image/upload/v1697711639/scroll/posts/dgmftdrpfisib46mz92k.jpg",
+      "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1697711639/scroll/posts/dgmftdrpfisib46mz92k.jpg",
     mediaAlt: "salad",
     likedBy: ["LCrc9f0Zl0", "1T6Be1QpLm", "o5gzWjEeX_"],
     comments: [
@@ -26,7 +26,7 @@ export const posts = [
         lastName: "Alter",
         username: "johnalter",
         profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065153/scroll/users/johnalter_qrfboh.jpg",
+          "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1691065153/scroll/users/johnalter_qrfboh.jpg",
         createdAt: formatDate(),
         updatedAt: formatDate(),
       },
@@ -37,7 +37,7 @@ export const posts = [
         lastName: "Kuthrapalli",
         username: "rajeshk",
         profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691067474/scroll/users/rajeshkuthrapalli_q3yxdj.webp",
+          "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1691067474/scroll/users/rajeshkuthrapalli_q3yxdj.webp",
         createdAt: formatDate(),
         updatedAt: formatDate(),
       },
@@ -48,7 +48,7 @@ export const posts = [
         lastName: "Brown",
         username: "milliebrown",
         profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065151/scroll/users/milliebrown_icaxdb.jpg",
+          "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1691065151/scroll/users/milliebrown_icaxdb.jpg",
         createdAt: formatDate(),
         updatedAt: formatDate(),
       },
@@ -61,7 +61,7 @@ export const posts = [
     updatedAt: formatDate(),
     content: "my new setup 💻",
     mediaURL:
-      "https://res.cloudinary.com/random-data-cloud/image/upload/v1691071409/scroll/posts/setup_t6prxi.jpg",
+      "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1691071409/scroll/posts/setup_t6prxi.jpg",
     mediaAlt: "workspace",
     likedBy: ["79Gksh9otl", "LCrc9f0Zl0", "1T6Be1QpLm", "o5gzWjEeX_"],
     comments: [
@@ -72,7 +72,7 @@ export const posts = [
         lastName: "samson",
         username: "sarahsamsn",
         profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065151/scroll/users/sarahsamson_f4mwza.jpg",
+          "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1691065151/scroll/users/sarahsamson_f4mwza.jpg",
         createdAt: formatDate(),
         updatedAt: formatDate(),
       },
@@ -84,7 +84,7 @@ export const posts = [
         password: "robert1234",
         username: "robertj123",
         profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065151/scroll/users/robertjane_nlepsa.jpg",
+          "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1691065151/scroll/users/robertjane_nlepsa.jpg",
         createdAt: formatDate(),
         updatedAt: formatDate(),
       },
@@ -96,7 +96,7 @@ export const posts = [
         password: "peter12345",
         username: "notspiderman",
         profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065155/scroll/users/peterparker_nwttth.jpg",
+          "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1691065155/scroll/users/peterparker_nwttth.jpg",
         createdAt: formatDate(),
         updatedAt: formatDate(),
       },
@@ -109,7 +109,7 @@ export const posts = [
     updatedAt: formatDate(),
     content: "updated the cover photo",
     mediaURL:
-      "https://res.cloudinary.com/random-data-cloud/image/upload/v1691066687/scroll/background/travel_om25zv.jpg",
+      "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1691066687/scroll/background/travel_om25zv.jpg",
     mediaAlt: "travelInMountains",
     likedBy: ["LCrc9f0Zl0"],
     comments: [
@@ -120,7 +120,7 @@ export const posts = [
         lastName: "Matthew",
         username: "sheldonnotcooper",
         profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065151/scroll/users/sheldonmatthew_f0a2ni.jpg",
+          "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1691065151/scroll/users/sheldonmatthew_f0a2ni.jpg",
         createdAt: formatDate(),
         updatedAt: formatDate(),
       },
@@ -132,7 +132,7 @@ export const posts = [
         password: "robert1234",
         username: "robertj123",
         profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065151/scroll/users/robertjane_nlepsa.jpg",
+          "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1691065151/scroll/users/robertjane_nlepsa.jpg",
         createdAt: formatDate(),
         updatedAt: formatDate(),
       },
@@ -145,7 +145,7 @@ export const posts = [
     updatedAt: formatDate(),
     content: "Living life one concert at a time 🎸",
     mediaURL:
-      "https://res.cloudinary.com/random-data-cloud/image/upload/v1691074464/scroll/posts/concert_apih8c.jpg",
+      "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1691074464/scroll/posts/concert_apih8c.jpg",
     mediaAlt: "liveconcert",
     likedBy: ["t7cZfWIp-q", "1T6Be1QpLm", "o5gzWjEeX_"],
     comments: [
@@ -156,7 +156,7 @@ export const posts = [
         lastName: "Matthew",
         username: "sheldonnotcooper",
         profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065151/scroll/users/sheldonmatthew_f0a2ni.jpg",
+          "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1691065151/scroll/users/sheldonmatthew_f0a2ni.jpg",
         createdAt: formatDate(),
         updatedAt: formatDate(),
       },
@@ -168,7 +168,7 @@ export const posts = [
         password: "robert1234",
         username: "robertj123",
         profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065151/scroll/users/robertjane_nlepsa.jpg",
+          "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1691065151/scroll/users/robertjane_nlepsa.jpg",
         createdAt: formatDate(),
         updatedAt: formatDate(),
       },
@@ -181,7 +181,7 @@ export const posts = [
     updatedAt: formatDate(),
     content: "In love with this new ps5 console.🎮",
     mediaURL:
-      "https://res.cloudinary.com/random-data-cloud/image/upload/v1691073099/scroll/posts/console_wfxexu.jpg",
+      "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1691073099/scroll/posts/console_wfxexu.jpg",
     mediaAlt: "gamingConsole",
     likedBy: ["LCrc9f0Zl0", "t7cZfWIp-q"],
     comments: [
@@ -193,7 +193,7 @@ export const posts = [
         password: "robert1234",
         username: "robertj123",
         profileAvatar:
-          "https://res.cloudinary.com/random-data-cloud/image/upload/v1691065151/scroll/users/robertjane_nlepsa.jpg",
+          "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1691065151/scroll/users/robertjane_nlepsa.jpg",
         createdAt: formatDate(),
         updatedAt: formatDate(),
       },
@@ -206,7 +206,7 @@ export const posts = [
     updatedAt: formatDate(),
     content: "My everyday walking partner 🐕‍🦺",
     mediaURL:
-      "https://res.cloudinary.com/random-data-cloud/image/upload/v1691075725/scroll/posts/roamingwithdog_r8k9dv.jpg",
+      "https://res.cloudinary.com/random-data-cloud/image/upload/f_auto,q_auto/v1691075725/scroll/posts/roamingwithdog_r8k9dv.jpg",
     mediaAlt: "walkingdog",
     likedBy: ["LCrc9f0Zl0", "t7cZfWIp-q"],
     comments: [],
