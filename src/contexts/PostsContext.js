@@ -6,7 +6,7 @@ import moment from "moment";
 
 export const PostsContext = createContext();
 export const PostsProvider = ({ children }) => {
-  const { currentUser } = useContext(UsersContext);
+  const { currentUser, setCurrentUser } = useContext(UsersContext);
   const [isFilterOn, setIsFilterOn] = useState(false);
 
   const allPostsFromDatabase = posts;
@@ -49,6 +49,29 @@ export const PostsProvider = ({ children }) => {
         );
       case "CREATE_POST":
         return [...state, payload];
+      case "BOOKMARK_POST":
+        return [...state].map((post) => {
+          if (post?._id === payload) {
+            setCurrentUser({
+              ...currentUser,
+              bookmarks: [...currentUser?.bookmarks, payload],
+            });
+          }
+          return post;
+        });
+
+      case "UNBOOKMARK_POST":
+        return [...state].map((post) => {
+          if (post._id === payload) {
+            setCurrentUser({
+              ...currentUser,
+              bookmarks: [...currentUser?.bookmarks].filter(
+                (id) => id !== payload
+              ),
+            });
+          }
+          return post;
+        });
 
       default:
         return state;

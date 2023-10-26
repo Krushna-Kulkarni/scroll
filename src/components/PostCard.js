@@ -14,7 +14,7 @@ import { PostsContext } from "../contexts/PostsContext";
 import { UsersContext } from "../contexts/UsersContext";
 
 const PostCard = ({ post, staticLoading }) => {
-  const { myUsers, currentUser, usersDispatch } = useContext(UsersContext);
+  const { myUsers, currentUser } = useContext(UsersContext);
   const { postsDispatch } = useContext(PostsContext);
 
   const {
@@ -28,8 +28,8 @@ const PostCard = ({ post, staticLoading }) => {
     comments,
   } = post;
   const user = myUsers?.find((user) => user.username === username);
-  const likes = likedBy.length;
-  const totalComments = comments.length;
+  const likes = likedBy?.length;
+  const totalComments = comments?.length;
 
   return (
     <>
@@ -108,7 +108,7 @@ const PostCard = ({ post, staticLoading }) => {
               {currentUser?.bookmarks?.includes(_id) ? (
                 <span
                   onClick={() => {
-                    usersDispatch({
+                    postsDispatch({
                       type: "UNBOOKMARK_POST",
                       payload: _id,
                     });
@@ -120,7 +120,7 @@ const PostCard = ({ post, staticLoading }) => {
               ) : (
                 <span
                   onClick={() => {
-                    usersDispatch({
+                    postsDispatch({
                       type: "BOOKMARK_POST",
                       payload: _id,
                     });

@@ -7,42 +7,14 @@ export const UsersProvider = ({ children }) => {
 
   const [currentUser, setCurrentUser] = useState(allUsers[0]);
 
-  const usersReducer = (state, { type, payload }) => {
-    let finalState;
-    switch (type) {
-      case "BOOKMARK_POST":
-        finalState = [...state].map((user) =>
-          user?._id === currentUser?._id
-            ? {
-                ...currentUser,
-                bookmarks: [...currentUser?.bookmarks, payload],
-              }
-            : user
-        );
-        break;
-      case "UNBOOKMARK_POST":
-        finalState = [...state].map((user) =>
-          user._id === currentUser._id
-            ? {
-                ...currentUser,
-                bookmarks: [...currentUser?.bookmarks].filter(
-                  (id) => id !== payload
-                ),
-              }
-            : user
-        );
-        break;
-      default:
-        return state;
-    }
-    setCurrentUser(finalState?.find((user) => user?._id === currentUser?._id));
-    return finalState;
-  };
+  const usersReducer = (state, { type, payload }) => {};
 
   const [myUsers, usersDispatch] = useReducer(usersReducer, allUsers);
 
   return (
-    <UsersContext.Provider value={{ myUsers, currentUser, usersDispatch }}>
+    <UsersContext.Provider
+      value={{ myUsers, currentUser, setCurrentUser, usersDispatch }}
+    >
       {children}
     </UsersContext.Provider>
   );

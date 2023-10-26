@@ -129,6 +129,7 @@ const CreatePost = () => {
                   <img
                     src={postImagePreview}
                     className="border border-gray-500 rounded-md"
+                    alt=""
                   />
                   <button
                     className="absolute top-[3%] right-5 bg-black text-white border border-gray-500 w-7 p-1 rounded-3xl"
@@ -245,6 +246,7 @@ const CreatePost = () => {
                   <img
                     src={postImagePreview}
                     className="border border-gray-500 rounded-md"
+                    alt=""
                   />
                   <button
                     className="absolute top-[3%] right-5 bg-black text-white border border-gray-500 w-7 p-1 rounded-3xl"

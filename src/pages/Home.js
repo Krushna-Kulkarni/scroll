@@ -61,7 +61,7 @@ const Home = () => {
         </div>
         {/* posts */}
         <div className="mb-12 sm:mb-2">
-          {currentUserFeedPosts.map((post) => {
+          {currentUserFeedPosts?.map((post) => {
             return (
               // Post
               <PostCard post={post} staticLoading={staticLoading} />
