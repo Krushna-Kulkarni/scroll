@@ -7,7 +7,19 @@ export const UsersProvider = ({ children }) => {
 
   const [currentUser, setCurrentUser] = useState(allUsers[0]);
 
-  const usersReducer = (state, { type, payload }) => {};
+  const usersReducer = (state, { type, payload }) => {
+    switch (type) {
+      case "UPDATE_PROFILE":
+        return [...state].map((user) => {
+          if (user._id === currentUser._id) {
+            setCurrentUser({ ...currentUser, ...payload });
+          }
+          return { ...currentUser, ...payload };
+        });
+      default:
+        return state;
+    }
+  };
 
   const [myUsers, usersDispatch] = useReducer(usersReducer, allUsers);
 
