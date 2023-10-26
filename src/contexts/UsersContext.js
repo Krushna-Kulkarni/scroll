@@ -14,7 +14,7 @@ export const UsersProvider = ({ children }) => {
           if (user._id === currentUser._id) {
             setCurrentUser({ ...currentUser, ...payload });
           }
-          return { ...currentUser, ...payload };
+          return user;
         });
       default:
         return state;

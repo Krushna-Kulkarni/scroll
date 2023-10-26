@@ -50,7 +50,7 @@ const PostCard = ({ post, staticLoading }) => {
               <div className="flex justify-start gap-2 pt-1">
                 <div className="flex">
                   <span className="font-[550]">
-                    {user.firstName} {user.lastName}
+                    {user?.firstName} {user?.lastName}
                   </span>
                   <span className=" text-gray-600">&nbsp;@{username}</span>
                 </div>

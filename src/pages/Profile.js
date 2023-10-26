@@ -18,7 +18,6 @@ const Profile = () => {
   const userPosts = allPosts.filter(
     (post) => post.username === currentUser.username
   );
-  console.log(currentUser?.firstName);
 
   return (
     <>
